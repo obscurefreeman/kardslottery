@@ -30,7 +30,6 @@ function getRandomBackImage() {
 function initCards() {
     cardContainer.innerHTML = '';
     flippedCards = 0;
-    messageEl.textContent = '点击卡牌翻转它们';
     
     // 随机选择5张不同的卡牌
     currentCards = [...cardImages].sort(() => 0.5 - Math.random()).slice(0, 5);
@@ -57,6 +56,8 @@ function initCards() {
         cardElement.appendChild(cardFront);
         cardElement.appendChild(cardBack);
         
+        cardElement.style.transform = 'rotateY(180deg)';
+        
         cardElement.addEventListener('click', flipCard);
         cardContainer.appendChild(cardElement);
     });
@@ -68,10 +69,10 @@ function flipCard(event) {
     if (card.classList.contains('flipped')) return;
     
     card.classList.add('flipped');
+    card.style.transform = 'rotateY(0deg)'; // 翻转卡牌到正面
     flippedCards++;
     
     if (flippedCards === currentCards.length) {
-        messageEl.textContent = '所有卡牌已翻开！即将生成新卡牌...';
         setTimeout(initCards, 1000);
     }
 }
