@@ -10,7 +10,6 @@ body {
     background-image: url('assets/images/background/background.jpg');
     background-size: cover;
     transform-origin: center center;
-    overflow: hidden; /* 禁止页面滚动 */
 }
 
 .card-container {
@@ -20,7 +19,6 @@ body {
     gap: 2vw;
     max-height: 80vw;
     max-width: 80vw;
-    overflow: hidden;
 }
 
 .card {
@@ -30,6 +28,16 @@ body {
     transform-style: preserve-3d;
     transition: transform 0.6s;
     cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: 
+        transform 0.6s cubic-bezier(0.18, 0.89, 0.32, 1.28),
+        box-shadow 0.6s ease;
+}
+
+.card:hover {
+    transform: scale(1.1) translateZ(20px);
+    z-index: 1;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 }
 
 .card-face {
@@ -38,7 +46,6 @@ body {
     height: 100%;
     backface-visibility: hidden;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     display: flex;
     justify-content: center;
     align-items: center;
