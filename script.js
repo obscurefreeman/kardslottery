@@ -11,7 +11,7 @@ const cardImages = [
 ];
 
 // 背面图像
-const backImage = 'assets/images/cards/back/BasicBritainB.jpg';
+const backImage = 'assets/images/back/BasicBritainB.jpg';
 
 const cardContainer = document.getElementById('cardContainer');
 const messageEl = document.getElementById('message');
@@ -36,14 +36,14 @@ function initCards() {
         cardFront.className = 'card-face card-front';
         const frontImg = document.createElement('img');
         frontImg.src = card;
-        frontImg.alt = `卡牌 ${index + 1}`;
+        frontImg.alt = `加载中`;
         cardFront.appendChild(frontImg);
         
         const cardBack = document.createElement('div');
         cardBack.className = 'card-face card-back';
         const backImg = document.createElement('img');
         backImg.src = backImage;
-        backImg.alt = '卡牌背面';
+        backImg.alt = '加载中';
         cardBack.appendChild(backImg);
         
         cardElement.appendChild(cardFront);
