@@ -27,7 +27,7 @@ function getBackImage(cardPath) {
 
 // 加载卡牌图片路径
 async function loadCardImages() {
-    const response = await fetch('cardImages.json');
+    const response = await fetch('info.json');
     const data = await response.json();
     cardImages = Object.values(data).flat(); // 将所有国家的卡牌图片合并成一个数组
     initCards(); // 初始化卡牌

@@ -6,7 +6,7 @@ from collections import defaultdict
 CARD_IMAGES_DIR = 'assets/images/card'
 
 # 定义输出 JSON 文件路径
-OUTPUT_JSON = 'cardImages.json'
+OUTPUT_JSON = 'info.json'
 
 def scan_card_images():
     # 使用 defaultdict 来按国家分类卡牌图片路径
