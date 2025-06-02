@@ -70,7 +70,25 @@ function initCards() {
     });
 }
 
-// 翻转卡牌
+// 添加悬浮按钮
+function createCountinueButton() {
+    const countinueButton = document.createElement('button');
+    countinueButton.id = 'countinueButton';
+    countinueButton.textContent = '继续';
+    countinueButton.classList.add('countinue-btn'); // 使用预定义的样式类
+    countinueButton.style.position = 'fixed';
+    countinueButton.style.bottom = '20px';
+    countinueButton.style.right = '20px';
+    countinueButton.style.zIndex = '1000';
+    document.body.appendChild(countinueButton);
+
+    countinueButton.addEventListener('click', () => {
+        initCards();
+        countinueButton.remove();
+    });
+}
+
+// 修改 flipCard 函数
 function flipCard(event) {
     const card = event.currentTarget;
     if (card.classList.contains('flipped')) return;
@@ -80,7 +98,7 @@ function flipCard(event) {
     flippedCards++;
     
     if (flippedCards === currentCards.length) {
-        setTimeout(initCards, 1000);
+        createCountinueButton(); // 显示刷新按钮
     }
 }
 
