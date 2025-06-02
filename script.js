@@ -4,12 +4,12 @@ let cardImages = [];
 // 国家与卡背图像的映射
 const backImageMap = {
     'britain': 'assets/images/back/BasicBritainB.jpg',
-    'germany': 'assets/images/back/BasicGermanB.jpg',
+    'german': 'assets/images/back/BasicGermanB.jpg',
     'finland': 'assets/images/back/FinlandBack.jpg',
     'france': 'assets/images/back/FranceBack.jpg',
     'italy': 'assets/images/back/ItalyBack.jpg',
     'japan': 'assets/images/back/JapanBasicB.jpg',
-    'poland': 'assets/images/back/polishBack.jpg',
+    'polish': 'assets/images/back/polishBack.jpg',
     'soviet': 'assets/images/back/SovietBasicB.jpg',
     'usa': 'assets/images/back/UsaBasicB.jpg'
 };
@@ -82,6 +82,24 @@ function flipCard(event) {
     if (flippedCards === currentCards.length) {
         setTimeout(initCards, 1000);
     }
+}
+
+// 添加事件监听器
+document.getElementById('minimize-btn').addEventListener('click', minimizeWindow);
+document.getElementById('maximize-btn').addEventListener('click', maximizeWindow);
+document.getElementById('close-btn').addEventListener('click', closeWindow);
+
+// 窗口控制函数
+function minimizeWindow() {
+    window.ipc.postMessage('window-minimize');
+}
+
+function maximizeWindow() {
+    window.ipc.postMessage('window-maximize');
+}
+
+function closeWindow() {
+    window.ipc.postMessage('window-close');
 }
 
 // 初始化游戏
