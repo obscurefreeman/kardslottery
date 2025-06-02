@@ -84,7 +84,12 @@ function flipCard(event) {
     }
 }
 
-// 添加事件监听器
+
+window.ipc = {
+    postMessage: (channel, data) => require('electron').ipcRenderer.send(channel, data),
+    on: (channel, callback) => require('electron').ipcRenderer.on(channel, callback)
+}
+
 document.getElementById('minimize-btn').addEventListener('click', minimizeWindow);
 document.getElementById('maximize-btn').addEventListener('click', maximizeWindow);
 document.getElementById('close-btn').addEventListener('click', closeWindow);

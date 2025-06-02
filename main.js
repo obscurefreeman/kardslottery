@@ -4,8 +4,8 @@ const fs = require('fs')
 
 function createWindow() {
   const mainWindow = new BrowserWindow({
-    width: 600,
-    height: 1000,
+    width: 1000,
+    height: 900,
     minWidth: 500,
     minHeight: 600,
     frame: false,
@@ -20,7 +20,9 @@ function createWindow() {
   // 加载你的HTML文件
   mainWindow.loadFile('index.html')
 
-  // 添加窗口控制IPC通信
+  // 开启开发者工具
+  mainWindow.webContents.openDevTools();
+
   ipcMain.on('window-minimize', () => mainWindow.minimize())
   ipcMain.on('window-maximize', () => {
     mainWindow.isMaximized() ? mainWindow.unmaximize() : mainWindow.maximize()
